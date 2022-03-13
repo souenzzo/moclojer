@@ -1,0 +1,12 @@
+on:
+  push:
+jobs:
+  hello:
+    runs-on: "ubuntu-20.04"
+    steps:
+      - uses: "actions/checkout@v2"
+      - working-directory: "integration-test"
+        run: "npm ci"
+      - uses: "./integration-test"
+        with:
+          who-to-greet: "souenzzo"
